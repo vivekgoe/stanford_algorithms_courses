@@ -83,7 +83,7 @@ if __name__ == '__main__':
 	
 #Solution to Problem Set#1
 #1 - nlog(n)
-#2 - Sometimes yes, sometimes no, depending on constant c
+#2 - True
 #3 - Sometimes yes, sometimes no (depending on f & g); yes if f(n) <= g(n) for all sufficiently large n
 #4 - Omega(nk^2)
 #5 - 2^(sqrt(log(n)) < sqrt(n) < n^1.5 < n^(5/3) < 10^n

@@ -5,14 +5,19 @@ def Swap(E1,E2):
     return E1,E2
 
 def Median(A,l,r):
+    """Function to return Median (of 3) element index for a given array"""
+	
+	#compute center element index
     if (r-l) % 2 == 0:
         center = int((r+l)/2) - 1
     else:
         center = int((r+l)/2)
 
+    #insert left,right and center elements
     list = [A[l],A[r-1],A[center]]
     idx = [l,r-1,center]
     
+	#sort 3 element list
     if list[0] > list[1]:
        list[0],list[1] = Swap(list[0],list[1])
        idx[0],idx[1] = Swap(idx[0],idx[1])
@@ -23,9 +28,11 @@ def Median(A,l,r):
        list[1],list[2] = Swap(list[1],list[2])
        idx[1],idx[2] = Swap(idx[1],idx[2])
 
+    #return index of median element
     return idx[1]
 	
 def QuickSortM(iArray,Left,Right):
+    """Function implmenting QuickSort using Median of 3"""
     global comparisons
     #print(iArray,Left,Right)
     center = Median(iArray,Left,Right)
@@ -40,6 +47,7 @@ def QuickSortM(iArray,Left,Right):
 
 
 def QuickSortL(iArray,Left,Right):
+    """Function implementing QuickSort using last element as Pivot"""
     global comparisons
     iArray[Right-1],iArray[Left] = Swap(iArray[Right-1],iArray[Left])
     r1,l2 = Partition(iArray,Left,Right)
@@ -50,6 +58,7 @@ def QuickSortL(iArray,Left,Right):
         QuickSortL(iArray,l2,Right)
 
 def QuickSort(iArray,Left,Right):
+    """Function implementing QuickSort using first element as Pivot"""
     global comparisons
     #print(iArray)
     r1,l2 = Partition(iArray,Left,Right)
@@ -61,6 +70,7 @@ def QuickSort(iArray,Left,Right):
         QuickSort(iArray,l2,Right)
 
 def Partition(A,l,r):
+    """Function implementing Array Partition step of QuickSort"""
     #print(A,l,r)
     Pivot = A[l]
     i = l+1
@@ -94,6 +104,6 @@ if __name__ == '__main__':
 #Solutions to problem set#3
 # 1 - 1-2*alpha
 # 2 - -log(n)/log(alpha) <= d <= -log(n)/log(1-alpha)
-# 3 -
-# 4 -
-# 5 -
+# 3 - Theta(log(n)); Theta(n)
+# 4 - 28
+# 5 - Y and Z are not independent; E[YZ] neq E[Y]E{Z]

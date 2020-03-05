@@ -11,6 +11,7 @@ def merge_and_count_split(aLeft, aRight, aLen):
            j += 1
            cnt += int(aLeft.__len__())-i 
         
+		# Boundary checks
         if aLeft.__len__() == i:
            aSorted.extend(aRight[j:aRight.__len__()])
            break
@@ -21,6 +22,7 @@ def merge_and_count_split(aLeft, aRight, aLen):
     return aSorted, cnt
 
 def merge_and_count(iArray, iLen):
+    # Base case
     if int(iLen) == 1:
         return iArray, 0
     aLeft, iCntLeft = merge_and_count(iArray[0:int(iLen/2)], int(iLen/2))
@@ -48,6 +50,6 @@ if __name__ == '__main__':
 #1 - Theta(N^2)
 #2 - Theta(n^2 * log(n))
 #3 - Theta(n * log3(5)) 
-#4 - Theta(b)
-#5 - Theta(1)
+#4 - Theta(log(b))
+#5 - Theta(log(n))
 		   
