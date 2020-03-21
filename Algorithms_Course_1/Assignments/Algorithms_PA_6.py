@@ -42,9 +42,14 @@ while X != V:
     A[LowIdx] = LowDist
     iteration += 1
 
-print(A,X,iteration,cnt)
+print(iteration,cnt)
+print(A[7],A[37],A[59],A[82],A[99],A[115],A[133],A[165],A[188],A[197])
 
     
-
+#1 - There is a shortest path s-t with no repeated vertices; Shortest path may have as many as n-1 vertices
+#2 - When all edges are distinct positive integers and graph contains no directed cycle
+#3 - Always
+#4 - Always terminates but in some cases paths computed will not be shortest; always terminates and in some cases paths computed will be correct shortest path
+#5 - Djkistra algorithm may loop forever 
 
 

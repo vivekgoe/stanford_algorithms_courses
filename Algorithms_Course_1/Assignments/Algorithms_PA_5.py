@@ -151,6 +151,6 @@ dfs_loop()
 #Solutions to set 5
 #1 - Theta(m)
 #2 - Theta(n+m)
-#3 - 
-#4 -
-#5 - 
+#3 - r >= d/2; r < d
+#4 - Sometimes yes, sometimes no
+#5 - Never decreases by more than 1; could remain the same
