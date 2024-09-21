@@ -24,5 +24,6 @@
 1. Divide & Conquer, Sorting & Searching, and Randomized Algorithms
 2. Graph Search, Shortest Paths and Data Structures
    - [Programming Assignment #2](Algorithms_Specialization/Assignments_Cpp/Course_2_PA_2)
+   - [Programming Assignment #3](Algorithms_Specialization/Assignments_Cpp/Course_2_PA_3)
 3. Greedy Algorithms, Minimum Spanning Trees & Dynamic Programming
 4. Shortest Paths revisited, NP Hard problems
