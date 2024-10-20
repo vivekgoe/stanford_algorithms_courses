@@ -1,12 +1,12 @@
 # Programming Problem Descriptions
 ## Problem-1
-Code up the greedy algorithm minimizing the weighted sum of completion times. Your task in this problem is to run the greedy algorithm that schedules jobs in decreasing order of the difference (weight - length). Input is in format given below,
+Code up the greedy scheduling algorithm minimizing the weighted sum of completion times. Your task in this problem is to run the greedy algorithm that schedules jobs in decreasing order of the difference (weight - length). Input is in format given below,
 - [number_of_jobs]
 - [job_1_weight] [job_1_length]
 - [job_2_weight] [job_2_length]
 - ..
 ## Problem-2
-Code up the greedy algorithm minimizing the weighted sum of completion times. Your task in this problem is to run the greedy algorithm that schedules jobs in decreasing order of the ratio (weight / length). Input is in format given below,
+Code up the greedy scheduling algorithm minimizing the weighted sum of completion times. Your task in this problem is to run the greedy algorithm that schedules jobs in decreasing order of the ratio (weight / length). Input is in format given below,
 - [number_of_jobs]
 - [job_1_weight] [job_1_length]
 - [job_2_weight] [job_2_length]

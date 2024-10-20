@@ -26,4 +26,5 @@
    - [Programming Assignment #2](Algorithms_Specialization/Assignments_Cpp/Course_2_PA_2)
    - [Programming Assignment #3](Algorithms_Specialization/Assignments_Cpp/Course_2_PA_3)
 3. Greedy Algorithms, Minimum Spanning Trees & Dynamic Programming
+   - [Programming Assignment #1](Algorithms_Specialization/Assignments_Cpp/Course_3_PA_1)
 4. Shortest Paths revisited, NP Hard problems
