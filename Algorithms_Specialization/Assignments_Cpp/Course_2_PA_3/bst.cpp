@@ -25,7 +25,7 @@ vector<int> read_inputs(string file_name)
 
 int main()
 {
-    // vector<int> inputs = {1, 2, 10, 6, 4, 15};
+    //vector<int> inputs = {1, 2, 10, 6, 4, 15};
     auto inputs = read_inputs("median.txt");
     Bst<int> bst;
     int median_sum = 0, count = 1;
@@ -46,8 +46,11 @@ int main()
         count++;
         median_sum += median;
     }
+    //bst.delete_node(1, bst.get_tree_root());
+    //bst.delete_node(10, bst.get_tree_root());
+    //bst.delete_node(6, bst.get_tree_root());
     //cout << bst;
-    cout << "tree height: " << bst.get_tree_height() << endl;
-    cout << "tree size: " << bst.get_tree_elements() << endl;
+    //cout << "tree height: " << bst.get_tree_height() << endl;
+    //cout << "tree size: " << bst.get_tree_elements() << endl;
     cout << "answer: " << median_sum % 10000 << endl;
 }

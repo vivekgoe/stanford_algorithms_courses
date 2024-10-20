@@ -11,8 +11,8 @@ public:
     T key, value;
     int height = 1;   // record height of node in tree
     int elements = 1; // record size of subtree starting at this node
-    shared_ptr<Node> left = nullptr;
-    shared_ptr<Node> right = nullptr;
+    shared_ptr<Node<T>> left = nullptr;
+    shared_ptr<Node<T>> right = nullptr;
     Node() {};
     Node(const T &k, const T &v) : key(k), value(v) {};
 };
@@ -35,6 +35,9 @@ public:
     T select(const int &rank, shared_ptr<Node<T>> node);
     shared_ptr<Node<T>> search(const T &key);
     void insert(const T &key, const T &value);
+    shared_ptr<Node<T>> delete_node(const T &key, shared_ptr<Node<T>>);
+    shared_ptr<Node<T>> find_predecessor(shared_ptr<Node<T>>);
+    shared_ptr<Node<T>> find_max(shared_ptr<Node<T>>);
     void inorder_traversal(std::ostream &os, shared_ptr<Node<T>> ptr)
     {
         if (ptr == nullptr)
@@ -177,6 +180,96 @@ shared_ptr<Node<T>> Bst<T>::insert_recursive(const T &key, const T &value, share
     }
 
     return ptr;
+}
+
+template <typename T>
+shared_ptr<Node<T>> Bst<T>::delete_node(const T &key, shared_ptr<Node<T>> node)
+{
+    if (node == nullptr)
+    {
+        return node;
+    }
+
+    if (key < node->key)
+    {
+        node->left = delete_node(key, node->left);
+    }
+    else if (key > node->key)
+    {
+        node->right = delete_node(key, node->right);
+    }
+    else if (key == node->key)
+    {
+        if (node->right == nullptr && node->left == nullptr)
+        {
+            node.reset();
+            return nullptr;
+        }
+        else if (node->right == nullptr || node->left == nullptr)
+        {
+            if (node->right == nullptr)
+            {
+                swap(node->left, node);
+                node->left.reset();
+            }
+            else if (node->left == nullptr)
+            {
+                swap(node->right->key, node->key);
+                swap(node->right->value, node->value);
+                node->right.reset();
+            }
+        }
+        else
+        {
+            auto pred_node = find_predecessor(node);
+            swap(pred_node->key, node->key);
+            swap(pred_node->value, node->value);
+            node->left = delete_node(pred_node->key, node->left);
+        }
+    }
+
+    node->height = 1 + max(get_height(node->left), get_height(node->right));
+    node->elements = 1 + get_elements(node->left) + get_elements(node->right);
+
+    // Left Left Case
+    if (get_balance(node) > 1 && get_balance(node->left) >= 0){
+        return right_rotate(node);
+    }
+
+    // Left Right Case
+    if (get_balance(node) > 1 && get_balance(node->left) < 0) {
+        node->left = left_rotate(node->left);
+        return right_rotate(node);
+    }
+
+    // Right Right Case
+    if (get_balance(node) < -1 && get_balance(node->right) <= 0){
+        return left_rotate(node);
+    }
+
+    // Right Left Case
+    if (get_balance(node) < -1 && get_balance(node->right) > 0) {
+        node->right = right_rotate(node->right);
+        return left_rotate(node);
+    }
+
+    return node;
+}
+
+template <typename T>
+shared_ptr<Node<T>> Bst<T>::find_predecessor(shared_ptr<Node<T>> node)
+{
+    return find_max(node->left);
+}
+
+template <typename T>
+shared_ptr<Node<T>> Bst<T>::find_max(shared_ptr<Node<T>> node)
+{
+    if (node->right == nullptr)
+    {
+        return node;
+    }
+    return find_max(node->right);
 }
 
 template <typename T>
